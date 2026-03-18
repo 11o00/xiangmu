@@ -10,7 +10,7 @@ services:
     environment:
       - DB_URL=jdbc:mysql://db:3306/stall_map?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
       - DB_USER=root
-      - DB_PASS=password
+      - DB_PASS=nnkjw875
       - SPRING_PROFILES_ACTIVE=dev
     depends_on:
       db:
@@ -24,7 +24,7 @@ services:
     image: mysql:8.0
     container_name: stall-map-db
     environment:
-      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=nnkjw875
       - MYSQL_DATABASE=stall_map
       - MYSQL_ALLOW_EMPTY_PASSWORD=no
     volumes:
@@ -35,7 +35,7 @@ services:
     networks:
       - stall-map-network
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-ppassword"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pnnkjw875"]
       interval: 10s
       timeout: 5s
       retries: 5
