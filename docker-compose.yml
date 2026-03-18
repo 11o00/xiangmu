@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  # 应用服务
+  app:
+    build: .
+    container_name: stall-map-app
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_URL=jdbc:mysql://db:3306/stall_map?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+      - DB_USER=root
+      - DB_PASS=password
+      - SPRING_PROFILES_ACTIVE=dev
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - stall-map-network
+    restart: unless-stopped
+
+  # 数据库服务
+  db:
+    image: mysql:8.0
+    container_name: stall-map-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=stall_map
+      - MYSQL_ALLOW_EMPTY_PASSWORD=no
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    ports:
+      - "3306:3306"
+    networks:
+      - stall-map-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-ppassword"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  mysql-data:
+
+networks:
+  stall-map-network:
+    driver: bridge
