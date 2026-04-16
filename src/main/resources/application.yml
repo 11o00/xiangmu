@@ -4,11 +4,18 @@ server:
 spring:
   application:
     name: stall-map-backend
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
   datasource:
-    url: ${DB_URL:jdbc:mysql://test-db-mysql.ns-iqkda4e7.svc:3306/stall_map?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true}
-    username: ${DB_USER:root}
-    password: ${DB_PASS:6t2ltdlf}
+    url: jdbc:mysql://test-db-mysql.ns-5kijrvqd.svc:3306/觅摊?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: w6k54c6l
     driver-class-name: com.mysql.cj.jdbc.Driver
+  sql:
+    init:
+      schema-locations: classpath:sql/init.sql
+      mode: never
 
 mybatis-plus:
   configuration:
