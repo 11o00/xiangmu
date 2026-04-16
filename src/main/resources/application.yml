@@ -5,9 +5,9 @@ spring:
   application:
     name: stall-map-backend
   datasource:
-    url: ${DB_URL:jdbc:mysql://dbconn.sealoshzh.site:39616/stall_map?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true}
+    url: ${DB_URL:jdbc:mysql://test-db-mysql.ns-iqkda4e7.svc:3306/stall_map?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true}
     username: ${DB_USER:root}
-    password: ${DB_PASS:nnkjw875}
+    password: ${DB_PASS:6t2ltdlf}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis-plus:

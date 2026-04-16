@@ -1,7 +1,7 @@
 package com.stallmap.common.exception;
 
 import com.stallmap.common.api.Result;
-import jakarta.validation.ConstraintViolationException;
+import javax.validation.ConstraintViolationException;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.MethodArgumentNotValidException;

@@ -18,8 +18,17 @@ public class Result<T> {
         return Result.<T>builder().code(0).message("OK").data(data).build();
     }
 
+    public static <T> Result<T> ok() {
+        return Result.<T>builder().code(0).message("OK").build();
+    }
+
     public static <T> Result<T> fail(int code, String message) {
         return Result.<T>builder().code(code).message(message).build();
+    }
+
+    public Result<T> setMessage(String message) {
+        this.message = message;
+        return this;
     }
 }
 

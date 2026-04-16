@@ -2,7 +2,7 @@ package com.stallmap.module.stall.controller;
 
 import com.stallmap.common.api.Result;
 import com.stallmap.module.stall.dto.NearbyStallQuery;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
